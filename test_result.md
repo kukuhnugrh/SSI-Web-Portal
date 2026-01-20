@@ -137,11 +137,11 @@ frontend:
 
   - task: "Product Detail Page Interactions"
     implemented: true
-    working: true
+    working: "NA"
     file: "/app/frontend/src/pages/ProductDetailPage.jsx"
     stuck_count: 0
     priority: "high"
-    needs_retesting: false
+    needs_retesting: true
     status_history:
       - working: "NA"
         agent: "testing"
@@ -149,6 +149,21 @@ frontend:
       - working: true
         agent: "testing"
         comment: "✅ PASSED - Product detail page works well: Add to Cart button functional, color selection available, tabs (Features, Specifications, Reviews) work correctly, product images and thumbnails display properly. Navigation from products page to detail page works correctly"
+      - working: "NA"
+        agent: "testing"
+        comment: "UPDATED PRODUCT DETAIL PAGE - New enhanced tab structure similar to Herman Miller needs testing. Must verify new navigation tabs: Overview, Specs, Design Story, Pro Resources, Product Images. Each tab should switch content properly with specific content for each section."
+
+  - task: "Enhanced Product Detail Tabs"
+    implemented: true
+    working: "NA"
+    file: "/app/frontend/src/pages/ProductDetailPage.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+      - working: "NA"
+        agent: "testing"
+        comment: "NEW FEATURE - Enhanced Product Detail page with Herman Miller-style tabs: Overview (product gallery, color selection, quantity, Add to Cart, Contact Dealer, features), Specs (dimensions, materials, features, sustainability), Design Story (designer info, story content), Pro Resources (3D models, specifications, marketing downloads), Product Images (gallery grid with download). Need comprehensive testing of all tab functionality and content switching."
 
   - task: "Admin Page CRUD Operations"
     implemented: true
