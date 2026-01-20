@@ -115,7 +115,7 @@ const ProductDetailPage = () => {
   const proResources = [
     {
       type: "3D Models",
-      icon: Cube,
+      icon: Box,
       items: [
         { name: `${product.name} - Revit Family`, format: ".rfa", size: "2.4 MB" },
         { name: `${product.name} - SketchUp`, format: ".skp", size: "1.8 MB" },
