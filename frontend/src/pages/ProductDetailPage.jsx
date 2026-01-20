@@ -152,7 +152,7 @@ const ProductDetailPage = () => {
 
   // Quick links for navigation
   const quickLinks = [
-    { icon: Cube, label: "3D Models", href: "#pro-resources" },
+    { icon: Box, label: "3D Models", href: "#pro-resources" },
     { icon: Palette, label: "Materials", href: "#materials" },
     { icon: Ruler, label: "Dimensions", href: "#dimensions" },
   ];
