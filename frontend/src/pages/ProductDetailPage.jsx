@@ -407,45 +407,14 @@ const ProductDetailPage = () => {
                     </div>
                   </div>
 
-                  {/* Material Color Selections */}
-                  {product.materialColors && (
-                    <div className="mb-6 space-y-5 p-5 bg-secondary/30 rounded-xl">
-                      <div className="text-sm font-medium text-foreground flex items-center gap-2">
-                        <Palette className="w-4 h-4 text-accent" />
-                        Customize Your {product.material}
-                      </div>
-                      
-                      {Object.entries(product.materialColors).map(([materialType, colors]) => (
-                        <div key={materialType}>
-                          <label className="block text-sm font-medium text-foreground mb-2 capitalize">
-                            {materialType} Color: <span className="text-muted-foreground">{selectedMaterialColors[materialType]}</span>
-                          </label>
-                          <div className="flex flex-wrap gap-2">
-                            {colors.map((color) => (
-                              <button
-                                key={color}
-                                onClick={() => handleMaterialColorChange(materialType, color)}
-                                className={cn(
-                                  "px-3 py-1.5 rounded-md border text-xs font-medium transition-all",
-                                  selectedMaterialColors[materialType] === color
-                                    ? "border-accent bg-accent text-accent-foreground"
-                                    : "border-border bg-background text-muted-foreground hover:border-foreground hover:text-foreground"
-                                )}
-                              >
-                                {color}
-                              </button>
-                            ))}
-                          </div>
-                        </div>
-                      ))}
-                      
-                      <div className="text-xs text-muted-foreground pt-2 border-t border-border/50">
-                        Selected: {Object.entries(selectedMaterialColors).map(([type, color]) => (
-                          <span key={type} className="capitalize">{type}: {color} </span>
-                        ))}
-                      </div>
-                    </div>
-                  )}
+                  {/* Material Color Selector Component */}
+                  <div className="mb-6">
+                    <MaterialColorSelector
+                      product={product}
+                      selectedColors={selectedPartColors}
+                      onColorChange={handlePartColorChange}
+                    />
+                  </div>
 
                   {/* Quantity */}
                   <div className="mb-8">
