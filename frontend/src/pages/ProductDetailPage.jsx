@@ -124,12 +124,21 @@ const ProductDetailPage = () => {
     .slice(0, 4);
 
   const handleAddToCart = () => {
-    const materialColorsDesc = Object.entries(selectedMaterialColors)
-      .map(([type, color]) => `${type}: ${color}`)
-      .join(", ");
+    // Get material type and config
+    const materialType = getProductMaterialType(product.material);
+    const config = productCustomizationConfig[materialType] || productCustomizationConfig.mesh;
+    
+    // Build description with all selected parts
+    const partsDesc = config.parts
+      .map((part) => {
+        const palette = colorPalettes[part.palette];
+        const colorInfo = palette?.options.find((c) => c.code === selectedPartColors[part.id]);
+        return `${part.name}: ${colorInfo?.code || "N/A"}`;
+      })
+      .join(" | ");
     
     toast.success(`Added ${quantity} ${product.name} to cart`, {
-      description: `Color: ${selectedColor}${materialColorsDesc ? ` | ${materialColorsDesc}` : ""}`,
+      description: partsDesc,
     });
   };
 
