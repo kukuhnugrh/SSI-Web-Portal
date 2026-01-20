@@ -8,6 +8,12 @@ import { Separator } from "@/components/ui/separator";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { products } from "@/data/products";
+import { 
+  colorPalettes, 
+  productCustomizationConfig, 
+  getProductMaterialType 
+} from "@/data/colorPalettes";
+import { MaterialColorSelector } from "@/components/product/MaterialColorSelector";
 import { toast } from "sonner";
 import {
   Star,
