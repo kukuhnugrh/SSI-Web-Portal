@@ -1,23 +1,15 @@
-import { useState, useEffect } from "react";
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useState, useMemo } from "react";
+import { useParams, Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { products } from "@/data/products";
 import { toast } from "sonner";
 import {
   Star,
-  ArrowLeft,
   Heart,
   Share2,
   ShoppingBag,
@@ -33,20 +25,20 @@ import { cn } from "@/lib/utils";
 
 const ProductDetailPage = () => {
   const { id } = useParams();
-  const navigate = useNavigate();
-  const [product, setProduct] = useState(null);
   const [selectedImage, setSelectedImage] = useState(0);
-  const [selectedColor, setSelectedColor] = useState("");
   const [quantity, setQuantity] = useState(1);
   const [isWishlisted, setIsWishlisted] = useState(false);
-
-  useEffect(() => {
-    const foundProduct = products.find((p) => p.id === parseInt(id));
-    if (foundProduct) {
-      setProduct(foundProduct);
-      setSelectedColor(foundProduct.colors[0]);
-    }
+  
+  // Find product using useMemo to avoid setState in effect
+  const product = useMemo(() => {
+    return products.find((p) => p.id === parseInt(id)) || null;
   }, [id]);
+  
+  // Initialize selectedColor based on product
+  const [selectedColor, setSelectedColor] = useState(() => {
+    const found = products.find((p) => p.id === parseInt(id));
+    return found ? found.colors[0] : "";
+  });
 
   if (!product) {
     return (
