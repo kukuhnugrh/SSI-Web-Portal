@@ -217,7 +217,12 @@ metadata:
   run_ui: true
 
 test_plan:
-  current_focus: []
+  current_focus:
+    - "Enhanced Product Detail Tabs"
+    - "Product Detail Page Interactions"
+    - "Home Page Navigation and Content"
+    - "Products Page Search and Filter"
+    - "Admin Page CRUD Operations"
   stuck_tasks: []
   test_all: false
   test_priority: "high_first"
