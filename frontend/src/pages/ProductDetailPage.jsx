@@ -99,8 +99,12 @@ const ProductDetailPage = () => {
     .slice(0, 4);
 
   const handleAddToCart = () => {
+    const materialColorsDesc = Object.entries(selectedMaterialColors)
+      .map(([type, color]) => `${type}: ${color}`)
+      .join(", ");
+    
     toast.success(`Added ${quantity} ${product.name} to cart`, {
-      description: `Color: ${selectedColor}`,
+      description: `Color: ${selectedColor}${materialColorsDesc ? ` | ${materialColorsDesc}` : ""}`,
     });
   };
 
