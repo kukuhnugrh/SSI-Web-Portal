@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useCallback } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -29,8 +29,82 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
+// Filter Content Component extracted outside of render
+const FilterContent = ({
+  selectedCategory,
+  setSelectedCategory,
+  priceRange,
+  setPriceRange,
+  inStockOnly,
+  setInStockOnly,
+  clearFilters,
+}) => (
+  <div className="space-y-8">
+    {/* Categories */}
+    <div>
+      <h4 className="font-semibold text-foreground mb-4">Categories</h4>
+      <div className="space-y-2">
+        {categories.map((category) => (
+          <button
+            key={category.id}
+            onClick={() => setSelectedCategory(category.id)}
+            className={cn(
+              "w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm transition-colors",
+              selectedCategory === category.id
+                ? "bg-accent text-accent-foreground"
+                : "text-muted-foreground hover:bg-secondary hover:text-foreground"
+            )}
+          >
+            <span>{category.name}</span>
+            <Badge variant="secondary" className="text-xs">
+              {category.count}
+            </Badge>
+          </button>
+        ))}
+      </div>
+    </div>
+
+    {/* Price Range */}
+    <div>
+      <h4 className="font-semibold text-foreground mb-4">Price Range</h4>
+      <Slider
+        value={priceRange}
+        onValueChange={setPriceRange}
+        max={6000}
+        min={0}
+        step={100}
+        className="mb-4"
+      />
+      <div className="flex items-center justify-between text-sm text-muted-foreground">
+        <span>${priceRange[0].toLocaleString()}</span>
+        <span>${priceRange[1].toLocaleString()}</span>
+      </div>
+    </div>
+
+    {/* Availability */}
+    <div>
+      <h4 className="font-semibold text-foreground mb-4">Availability</h4>
+      <div className="flex items-center space-x-2">
+        <Checkbox
+          id="inStock"
+          checked={inStockOnly}
+          onCheckedChange={setInStockOnly}
+        />
+        <Label htmlFor="inStock" className="text-sm text-muted-foreground">
+          In Stock Only
+        </Label>
+      </div>
+    </div>
+
+    {/* Clear Filters */}
+    <Button variant="outline" className="w-full" onClick={clearFilters}>
+      Clear All Filters
+    </Button>
+  </div>
+);
+
 const ProductsPage = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState(
     searchParams.get("category") || "all"
@@ -91,78 +165,13 @@ const ProductsPage = () => {
     return result;
   }, [searchQuery, selectedCategory, priceRange, inStockOnly, selectedSort]);
 
-  const clearFilters = () => {
+  const clearFilters = useCallback(() => {
     setSearchQuery("");
     setSelectedCategory("all");
     setPriceRange([0, 6000]);
     setInStockOnly(false);
     setSelectedSort("featured");
-  };
-
-  const FilterContent = () => (
-    <div className="space-y-8">
-      {/* Categories */}
-      <div>
-        <h4 className="font-semibold text-foreground mb-4">Categories</h4>
-        <div className="space-y-2">
-          {categories.map((category) => (
-            <button
-              key={category.id}
-              onClick={() => setSelectedCategory(category.id)}
-              className={cn(
-                "w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm transition-colors",
-                selectedCategory === category.id
-                  ? "bg-accent text-accent-foreground"
-                  : "text-muted-foreground hover:bg-secondary hover:text-foreground"
-              )}
-            >
-              <span>{category.name}</span>
-              <Badge variant="secondary" className="text-xs">
-                {category.count}
-              </Badge>
-            </button>
-          ))}
-        </div>
-      </div>
-
-      {/* Price Range */}
-      <div>
-        <h4 className="font-semibold text-foreground mb-4">Price Range</h4>
-        <Slider
-          value={priceRange}
-          onValueChange={setPriceRange}
-          max={6000}
-          min={0}
-          step={100}
-          className="mb-4"
-        />
-        <div className="flex items-center justify-between text-sm text-muted-foreground">
-          <span>${priceRange[0].toLocaleString()}</span>
-          <span>${priceRange[1].toLocaleString()}</span>
-        </div>
-      </div>
-
-      {/* Availability */}
-      <div>
-        <h4 className="font-semibold text-foreground mb-4">Availability</h4>
-        <div className="flex items-center space-x-2">
-          <Checkbox
-            id="inStock"
-            checked={inStockOnly}
-            onCheckedChange={setInStockOnly}
-          />
-          <Label htmlFor="inStock" className="text-sm text-muted-foreground">
-            In Stock Only
-          </Label>
-        </div>
-      </div>
-
-      {/* Clear Filters */}
-      <Button variant="outline" className="w-full" onClick={clearFilters}>
-        Clear All Filters
-      </Button>
-    </div>
-  );
+  }, []);
 
   return (
     <div className="min-h-screen bg-background">
@@ -190,7 +199,15 @@ const ProductsPage = () => {
             {/* Desktop Sidebar */}
             <aside className="hidden lg:block w-64 flex-shrink-0">
               <div className="sticky top-28">
-                <FilterContent />
+                <FilterContent
+                  selectedCategory={selectedCategory}
+                  setSelectedCategory={setSelectedCategory}
+                  priceRange={priceRange}
+                  setPriceRange={setPriceRange}
+                  inStockOnly={inStockOnly}
+                  setInStockOnly={setInStockOnly}
+                  clearFilters={clearFilters}
+                />
               </div>
             </aside>
 
@@ -231,7 +248,15 @@ const ProductsPage = () => {
                       <SheetTitle>Filters</SheetTitle>
                     </SheetHeader>
                     <div className="mt-6">
-                      <FilterContent />
+                      <FilterContent
+                        selectedCategory={selectedCategory}
+                        setSelectedCategory={setSelectedCategory}
+                        priceRange={priceRange}
+                        setPriceRange={setPriceRange}
+                        inStockOnly={inStockOnly}
+                        setInStockOnly={setInStockOnly}
+                        clearFilters={clearFilters}
+                      />
                     </div>
                   </SheetContent>
                 </Sheet>
