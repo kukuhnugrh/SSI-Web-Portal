@@ -16,6 +16,10 @@ export const products = [
     ],
     colors: ["Graphite", "Mineral", "Carbon"],
     material: "Mesh",
+    materialColors: {
+      mesh: ["Onyx", "Zinc", "Carbon", "Alpine"],
+      frame: ["Graphite", "Mineral", "Satin Carbon", "Polished Aluminum"]
+    },
     warranty: "12 Years",
     inStock: true,
     featured: true,
@@ -53,6 +57,10 @@ export const products = [
     ],
     colors: ["Glacier", "Nightfall", "Canyon"],
     material: "Mesh",
+    materialColors: {
+      mesh: ["Glacier", "Nightfall", "Canyon", "Dipped in Color"],
+      frame: ["White", "Graphite", "Carbon"]
+    },
     warranty: "12 Years",
     inStock: true,
     featured: true,
