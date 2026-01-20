@@ -262,6 +262,10 @@ export const products = [
     ],
     colors: ["Black", "Berry Blue", "Nightfall"],
     material: "Mesh",
+    materialColors: {
+      mesh: ["Black", "Berry Blue", "Nightfall", "Graphite"],
+      frame: ["Black", "Silver", "Graphite"]
+    },
     warranty: "12 Years",
     inStock: true,
     featured: false,
@@ -299,6 +303,10 @@ export const products = [
     ],
     colors: ["Nightfall", "Glacier", "Ochre"],
     material: "3D Knit",
+    materialColors: {
+      knit: ["Nightfall", "Glacier", "Ochre", "Carbon", "Berry Blue"],
+      frame: ["Graphite", "White", "Black"]
+    },
     warranty: "12 Years",
     inStock: true,
     featured: false,
