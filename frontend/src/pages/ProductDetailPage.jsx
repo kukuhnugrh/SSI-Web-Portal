@@ -23,7 +23,7 @@ import {
   Plus,
   Download,
   FileText,
-  Cube,
+  Box,
   Palette,
   Ruler,
   Play,
