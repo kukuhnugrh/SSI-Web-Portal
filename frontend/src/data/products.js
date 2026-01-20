@@ -98,6 +98,10 @@ export const products = [
     ],
     colors: ["Cyan", "Sync Onyx", "Nightfall"],
     material: "Sync Fabric",
+    materialColors: {
+      fabric: ["Sync Black", "Sync Blue", "Sync Cyan", "Sync Nightfall"],
+      frame: ["Titanium", "Matte Black", "White"]
+    },
     warranty: "12 Years",
     inStock: true,
     featured: false,
@@ -135,6 +139,10 @@ export const products = [
     ],
     colors: ["Graphite", "Alpine", "Slate Grey"],
     material: "Polymer",
+    materialColors: {
+      polymer: ["Graphite", "Slate Grey", "Dark Turquoise", "Studio White"],
+      frame: ["Graphite", "Studio White", "Fog"]
+    },
     warranty: "12 Years",
     inStock: true,
     featured: false,
