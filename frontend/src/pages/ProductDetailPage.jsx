@@ -64,25 +64,44 @@ const ProductDetailPage = () => {
     return found ? found.colors[0] : "";
   });
 
-  // Initialize material colors based on product
-  const [selectedMaterialColors, setSelectedMaterialColors] = useState(() => {
+  // Initialize part colors based on product material type
+  const [selectedPartColors, setSelectedPartColors] = useState(() => {
     const found = products.find((p) => p.id === parseInt(id));
-    if (found && found.materialColors) {
+    if (found) {
+      const materialType = getProductMaterialType(found.material);
+      const config = productCustomizationConfig[materialType] || productCustomizationConfig.mesh;
       const initialColors = {};
-      Object.keys(found.materialColors).forEach((key) => {
-        initialColors[key] = found.materialColors[key][0];
+      config.parts.forEach((part) => {
+        const palette = colorPalettes[part.palette];
+        if (palette && palette.options.length > 0) {
+          initialColors[part.id] = palette.options[0].code;
+        }
       });
       return initialColors;
     }
     return {};
   });
 
-  // Helper to update material color selection
-  const handleMaterialColorChange = (materialType, color) => {
-    setSelectedMaterialColors((prev) => ({
+  // Helper to update part color selection
+  const handlePartColorChange = (partId, colorCode) => {
+    setSelectedPartColors((prev) => ({
       ...prev,
-      [materialType]: color,
+      [partId]: colorCode,
     }));
+  };
+
+  // Get color info for display
+  const getColorInfo = (partId) => {
+    if (!product) return null;
+    const materialType = getProductMaterialType(product.material);
+    const config = productCustomizationConfig[materialType] || productCustomizationConfig.mesh;
+    const part = config.parts.find((p) => p.id === partId);
+    if (part) {
+      const palette = colorPalettes[part.palette];
+      const selectedCode = selectedPartColors[partId];
+      return palette?.options.find((c) => c.code === selectedCode);
+    }
+    return null;
   };
 
   if (!product) {
