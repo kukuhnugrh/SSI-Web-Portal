@@ -58,6 +58,27 @@ const ProductDetailPage = () => {
     return found ? found.colors[0] : "";
   });
 
+  // Initialize material colors based on product
+  const [selectedMaterialColors, setSelectedMaterialColors] = useState(() => {
+    const found = products.find((p) => p.id === parseInt(id));
+    if (found && found.materialColors) {
+      const initialColors = {};
+      Object.keys(found.materialColors).forEach((key) => {
+        initialColors[key] = found.materialColors[key][0];
+      });
+      return initialColors;
+    }
+    return {};
+  });
+
+  // Helper to update material color selection
+  const handleMaterialColorChange = (materialType, color) => {
+    setSelectedMaterialColors((prev) => ({
+      ...prev,
+      [materialType]: color,
+    }));
+  };
+
   if (!product) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
