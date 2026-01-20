@@ -297,7 +297,7 @@ const HomePage = () => {
             </h2>
             <p className="text-muted-foreground">
               We understand the unique needs of businesses. From consultation to 
-              installation, we're your partners in creating healthier workplaces.
+              installation, we&apos;re your partners in creating healthier workplaces.
             </p>
           </div>
 
