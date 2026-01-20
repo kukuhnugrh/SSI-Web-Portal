@@ -180,6 +180,10 @@ export const products = [
     ],
     colors: ["Black", "White", "Red"],
     material: "Elastomer",
+    materialColors: {
+      elastomer: ["Black", "White", "Red", "Green Apple", "Berry Blue"],
+      frame: ["Black", "White", "Fog"]
+    },
     warranty: "12 Years",
     inStock: true,
     featured: true,
@@ -217,6 +221,10 @@ export const products = [
     ],
     colors: ["Oatmeal", "Black", "Ivory"],
     material: "MCL Leather",
+    materialColors: {
+      leather: ["Oatmeal", "Black", "Ivory", "Vicuna", "Walnut", "MCL Mahogany"],
+      frame: ["Polished Aluminum", "White", "Black"]
+    },
     warranty: "5 Years",
     inStock: false,
     featured: true,
