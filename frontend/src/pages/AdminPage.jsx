@@ -878,7 +878,7 @@ const AdminPage = () => {
               Delete Product
             </DialogTitle>
             <DialogDescription>
-              Are you sure you want to delete "{productToDelete?.name}"? This
+              Are you sure you want to delete &ldquo;{productToDelete?.name}&rdquo;? This
               action cannot be undone.
             </DialogDescription>
           </DialogHeader>
