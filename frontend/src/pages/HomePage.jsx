@@ -249,7 +249,7 @@ const HomePage = () => {
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
                 Since 1993, ERGŌ has been at the forefront of ergonomic innovation. 
-                We believe that exceptional seating is not a luxury—it's a necessity 
+                We believe that exceptional seating is not a luxury—it&apos;s a necessity 
                 for productivity, health, and wellbeing in the modern workplace.
               </p>
               <p className="text-muted-foreground leading-relaxed mb-8">
