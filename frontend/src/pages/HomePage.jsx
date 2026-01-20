@@ -373,7 +373,7 @@ const HomePage = () => {
                 <CardContent className="p-6">
                   <Quote className="w-8 h-8 text-accent mb-4" />
                   <p className="text-primary-foreground/90 leading-relaxed mb-6">
-                    "{testimonial.quote}"
+                    &ldquo;{testimonial.quote}&rdquo;
                   </p>
                   <div className="flex items-center gap-4">
                     <img
