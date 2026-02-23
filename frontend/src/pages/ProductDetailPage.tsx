@@ -951,7 +951,7 @@ const ProductDetailPage = () => {
               {relatedProducts.map((relProduct) => (
                 <Link to={`/products/${relProduct.id}`} key={relProduct.id}>
                   <Card className="group card-premium border-border/50 h-full bg-card">
-                    <div className="aspect-product bg-muted/30 p-4 img-zoom">
+                    <div className="aspect-product bg-muted/30 p-4 image-zoom">
                       <img
                         src={relProduct.image}
                         alt={relProduct.name}

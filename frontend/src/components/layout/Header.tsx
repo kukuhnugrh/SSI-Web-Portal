@@ -1,8 +1,13 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
-import { Menu, X, ShoppingBag, Search, User } from "lucide-react";
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+  SheetTitle,
+} from "@/components/ui/sheet";
+import { Menu, ShoppingBag, Search, User } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navigation = [
@@ -25,7 +30,7 @@ export const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const isActive = (href) => {
+  const isActive = (href: string) => {
     if (href === "/") return location.pathname === "/";
     return location.pathname.startsWith(href);
   };
@@ -36,23 +41,17 @@ export const Header = () => {
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         isScrolled
           ? "bg-background/95 backdrop-blur-md shadow-md py-3"
-          : "bg-transparent py-5"
+          : "bg-transparent py-5",
       )}
     >
       <div className="container mx-auto px-4 lg:px-8">
         <nav className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 z-10">
-            <div className={cn(
-              "font-serif text-2xl font-bold tracking-tight transition-colors duration-300",
-              isScrolled ? "text-foreground" : "text-foreground"
-            )}>
+            <div className="font-serif text-2xl font-bold tracking-tight transition-colors duration-300 text-foreground">
               ERGŌ
             </div>
-            <span className={cn(
-              "text-xs uppercase tracking-widest font-medium transition-colors duration-300",
-              isScrolled ? "text-muted-foreground" : "text-muted-foreground"
-            )}>
+            <span className="text-xs uppercase tracking-widest font-medium transition-colors duration-300 text-muted-foreground">
               Seating
             </span>
           </Link>
@@ -67,9 +66,7 @@ export const Header = () => {
                   "relative text-sm font-medium transition-colors duration-300 link-underline py-1",
                   isActive(item.href)
                     ? "text-accent"
-                    : isScrolled
-                    ? "text-foreground hover:text-accent"
-                    : "text-foreground hover:text-accent"
+                    : "text-foreground hover:text-accent",
                 )}
               >
                 {item.name}
@@ -82,30 +79,21 @@ export const Header = () => {
             <Button
               variant="ghost"
               size="icon"
-              className={cn(
-                "transition-colors duration-300",
-                isScrolled ? "text-foreground" : "text-foreground"
-              )}
+              className="text-foreground transition-colors duration-300"
             >
               <Search className="h-5 w-5" />
             </Button>
             <Button
               variant="ghost"
               size="icon"
-              className={cn(
-                "transition-colors duration-300",
-                isScrolled ? "text-foreground" : "text-foreground"
-              )}
+              className="text-foreground transition-colors duration-300"
             >
               <User className="h-5 w-5" />
             </Button>
             <Button
               variant="ghost"
               size="icon"
-              className={cn(
-                "relative transition-colors duration-300",
-                isScrolled ? "text-foreground" : "text-foreground"
-              )}
+              className="relative text-foreground transition-colors duration-300"
             >
               <ShoppingBag className="h-5 w-5" />
               <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full bg-accent text-[10px] font-bold text-accent-foreground flex items-center justify-center">
@@ -124,22 +112,16 @@ export const Header = () => {
             <Button
               variant="ghost"
               size="icon"
-              className={cn(
-                "transition-colors duration-300",
-                isScrolled ? "text-foreground" : "text-foreground"
-              )}
+              className="text-foreground transition-colors duration-300"
             >
               <ShoppingBag className="h-5 w-5" />
             </Button>
             <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
-              <SheetTrigger asChild>
+              <SheetTrigger>
                 <Button
                   variant="ghost"
                   size="icon"
-                  className={cn(
-                    "transition-colors duration-300",
-                    isScrolled ? "text-foreground" : "text-foreground"
-                  )}
+                  className="text-foreground transition-colors duration-300"
                 >
                   <Menu className="h-6 w-6" />
                 </Button>
@@ -160,7 +142,7 @@ export const Header = () => {
                           "px-4 py-3 text-base font-medium rounded-lg transition-colors",
                           isActive(item.href)
                             ? "bg-accent text-accent-foreground"
-                            : "text-foreground hover:bg-secondary"
+                            : "text-foreground hover:bg-secondary",
                         )}
                       >
                         {item.name}

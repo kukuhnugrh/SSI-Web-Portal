@@ -158,7 +158,7 @@ const HomePage = () => {
                         <Badge variant="secondary">Best Seller</Badge>
                       )}
                     </div>
-                    <div className="aspect-product bg-muted/30 p-4 img-zoom">
+                    <div className="aspect-product bg-muted/30 p-4 image-zoom">
                       <img
                         src={product.image}
                         alt={product.name}

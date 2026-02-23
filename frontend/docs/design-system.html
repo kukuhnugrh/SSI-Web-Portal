@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ERGŌ Design System — Visual Reference</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<script>
+(function(){var t=localStorage.getItem('theme');if(t==='light')document.documentElement.classList.remove('dark')})();
+</script>
+<style>
+/* ── Light tokens (default) ───────────────────────────────── */
+:root {
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+
+  --color-background: #FAF8F5;
+  --color-foreground: #1A1816;
+  --color-card: #FFFFFF;
+  --color-card-foreground: #1A1816;
+  --color-popover: #FFFFFF;
+  --color-popover-foreground: #1A1816;
+  --color-muted: #F2F0EC;
+  --color-muted-foreground: #737068;
+  --color-primary: #292624;
+  --color-primary-foreground: #FAF8F5;
+  --color-secondary: #F2EFE8;
+  --color-secondary-foreground: #2A2620;
+  --color-accent: #8C5A35;
+  --color-accent-foreground: #FAF8F5;
+  --color-destructive: #D22B2B;
+  --color-destructive-foreground: #FFFFFF;
+  --color-success: #33885A;
+  --color-success-foreground: #FFFFFF;
+  --color-warning: #F5A623;
+  --color-warning-foreground: #1A1816;
+  --color-border: #E6E1DC;
+  --color-input: #E6E1DC;
+  --color-ring: #8C5A35;
+  --color-premium-gold: #C69C39;
+  --color-premium-bronze: #7D5135;
+  --color-walnut: #7D4A28;
+  --color-warm-cream: #F6F4EE;
+  --color-charcoal-deep: #171512;
+  --color-chart-1: #8C5A35;
+  --color-chart-2: #C69C39;
+  --color-chart-3: #33885A;
+  --color-chart-4: #2484AD;
+  --color-chart-5: #4A4035;
+
+  --gradient-hero: linear-gradient(135deg, rgb(23 21 18 / 0.95), rgb(89 65 33 / 0.9));
+  --gradient-subtle: linear-gradient(180deg, #F6F4EE, #F2EFE8);
+  --gradient-card-hover: linear-gradient(180deg, #FFFFFF, #F7F5F0);
+  --gradient-premium: linear-gradient(135deg, #8C5A35, #C69C39);
+
+  --shadow-sm: 0 1px 2px 0 rgb(26 24 22 / 0.05);
+  --shadow-md: 0 4px 12px -2px rgb(26 24 22 / 0.08), 0 2px 6px -2px rgb(26 24 22 / 0.04);
+  --shadow-lg: 0 10px 30px -8px rgb(26 24 22 / 0.12), 0 4px 12px -4px rgb(26 24 22 / 0.06);
+  --shadow-xl: 0 20px 50px -12px rgb(26 24 22 / 0.18);
+  --shadow-elegant: 0 8px 32px -8px rgb(140 90 53 / 0.15);
+  --shadow-hover: 0 16px 40px -12px rgb(26 24 22 / 0.15);
+
+  --radius: 0.5rem;
+  --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-elegant: 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ── Dark tokens ──────────────────────────────────────────── */
+.dark {
+  --color-background: #0F0E0D;
+  --color-foreground: #F4F2EF;
+  --color-card: #171512;
+  --color-card-foreground: #F4F2EF;
+  --color-popover: #171512;
+  --color-popover-foreground: #F4F2EF;
+  --color-muted: #292420;
+  --color-muted-foreground: #9E9892;
+  --color-primary: #F4F2EF;
+  --color-primary-foreground: #0F0E0D;
+  --color-secondary: #211F1C;
+  --color-secondary-foreground: #F4F2EF;
+  --color-accent: #CC9D4D;
+  --color-accent-foreground: #0F0E0D;
+  --color-destructive: #D14747;
+  --color-destructive-foreground: #FFFFFF;
+  --color-success: #4DAA77;
+  --color-success-foreground: #0F0E0D;
+  --color-warning: #F5B84D;
+  --color-warning-foreground: #0F0E0D;
+  --color-border: #302C29;
+  --color-input: #302C29;
+  --color-ring: #CC9D4D;
+  --color-premium-gold: #E0B955;
+  --color-premium-bronze: #A57650;
+  --color-walnut: #A86B42;
+  --color-warm-cream: #2A2620;
+  --color-charcoal-deep: #0A0908;
+  --color-chart-1: #CC9D4D;
+  --color-chart-2: #E0B955;
+  --color-chart-3: #4DAA77;
+  --color-chart-4: #3AA0CC;
+  --color-chart-5: #8A7D6E;
+
+  --gradient-hero: linear-gradient(135deg, rgb(10 9 8 / 0.97), rgb(80 58 28 / 0.92));
+  --gradient-subtle: linear-gradient(180deg, #211F1C, #171512);
+  --gradient-card-hover: linear-gradient(180deg, #1A1816, #211F1C);
+  --gradient-premium: linear-gradient(135deg, #CC9D4D, #E0B955);
+
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.4);
+  --shadow-md: 0 4px 12px -2px rgb(0 0 0 / 0.5), 0 2px 6px -2px rgb(0 0 0 / 0.3);
+  --shadow-lg: 0 10px 30px -8px rgb(0 0 0 / 0.6), 0 4px 12px -4px rgb(0 0 0 / 0.35);
+  --shadow-xl: 0 20px 50px -12px rgb(0 0 0 / 0.7);
+  --shadow-elegant: 0 8px 32px -8px rgb(204 157 77 / 0.25);
+  --shadow-hover: 0 16px 40px -12px rgb(0 0 0 / 0.6);
+}
+
+/* ── Base ──────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-sans);
+  background: var(--color-background);
+  color: var(--color-foreground);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  transition: background 0.3s, color 0.3s;
+}
+
+h1, h2, h3, h4 { font-family: var(--font-serif); }
+
+a { color: var(--color-accent); text-decoration: none; }
+
+/* ── Layout ───────────────────────────────────────────────── */
+.container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+.page-header {
+  padding: 48px 0 32px;
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.page-header h1 { font-size: 2rem; letter-spacing: -0.02em; }
+
+section { margin-bottom: 56px; }
+section h2 { font-size: 1.5rem; margin-bottom: 24px; padding-bottom: 8px; border-bottom: 2px solid var(--color-accent); display: inline-block; }
+
+/* ── Theme Toggle ─────────────────────────────────────────── */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: var(--radius);
+  border: 1px solid var(--color-border);
+  background: var(--color-card);
+  color: var(--color-foreground);
+  cursor: pointer;
+  font-size: 14px;
+  font-family: var(--font-sans);
+  transition: all var(--transition-fast);
+}
+.theme-toggle:hover { border-color: var(--color-accent); }
+
+.theme-indicator {
+  display: inline-block;
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  border: 2px solid var(--color-foreground);
+  background: var(--color-foreground);
+  transition: all var(--transition-fast);
+}
+.dark .theme-indicator { background: transparent; }
+
+/* ── Swatch Grid ──────────────────────────────────────────── */
+.swatch-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 16px;
+}
+
+.swatch {
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  transition: transform var(--transition-fast);
+}
+.swatch:hover { transform: translateY(-2px); }
+
+.swatch-color {
+  height: 72px;
+  display: flex;
+  align-items: flex-end;
+  padding: 6px 10px;
+}
+
+.swatch-hex {
+  font-size: 11px;
+  font-family: monospace;
+  padding: 2px 6px;
+  border-radius: 3px;
+  background: rgb(0 0 0 / 0.4);
+  color: #fff;
+}
+
+.swatch-label {
+  padding: 8px 10px;
+  font-size: 12px;
+  font-weight: 500;
+  background: var(--color-card);
+  color: var(--color-card-foreground);
+}
+
+/* ── Shadow Showcase ──────────────────────────────────────── */
+.shadow-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 24px;
+}
+
+.shadow-box {
+  height: 100px;
+  border-radius: var(--radius);
+  background: var(--color-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-muted-foreground);
+}
+
+/* ── Gradient Showcase ────────────────────────────────────── */
+.gradient-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.gradient-strip {
+  height: 80px;
+  border-radius: var(--radius);
+  display: flex;
+  align-items: flex-end;
+  padding: 10px 14px;
+}
+
+.gradient-strip span {
+  font-size: 12px;
+  font-weight: 500;
+  padding: 2px 8px;
+  border-radius: 3px;
+  background: rgb(0 0 0 / 0.45);
+  color: #fff;
+}
+
+/* ── Typography ───────────────────────────────────────────── */
+.type-specimen { margin-bottom: 16px; }
+.type-specimen .label {
+  font-size: 12px;
+  color: var(--color-muted-foreground);
+  margin-bottom: 4px;
+  font-family: var(--font-sans);
+}
+
+/* ── Component Demos ──────────────────────────────────────── */
+.demo-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.demo-card {
+  width: 240px;
+  padding: 24px;
+  border-radius: var(--radius);
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+}
+.demo-card.premium:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+.demo-card h4 {
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+
+.demo-card p {
+  font-size: 13px;
+  color: var(--color-muted-foreground);
+}
+
+.btn-premium-demo {
+  display: inline-block;
+  padding: 10px 24px;
+  border-radius: var(--radius);
+  background: var(--gradient-premium);
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+.btn-premium-demo:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-elegant);
+}
+
+.glass-demo {
+  padding: 20px 28px;
+  border-radius: var(--radius);
+  backdrop-filter: blur(12px);
+  background: color-mix(in srgb, var(--color-background) 85%, transparent);
+  border: 1px solid var(--color-border);
+  font-size: 13px;
+}
+
+.text-gradient-demo {
+  background: var(--gradient-premium);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.link-underline-demo {
+  position: relative;
+  color: var(--color-accent);
+  font-weight: 500;
+}
+.link-underline-demo::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--color-accent);
+  transition: width var(--transition-smooth);
+}
+.link-underline-demo:hover::after { width: 100%; }
+
+.divider-demo {
+  width: 64px;
+  height: 1px;
+  background: var(--gradient-premium);
+  margin: 16px 0;
+}
+
+.img-zoom-demo {
+  width: 200px;
+  height: 140px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--color-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: var(--color-muted-foreground);
+}
+.img-zoom-demo .inner {
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--transition-elegant);
+}
+.img-zoom-demo:hover .inner { transform: scale(1.05); }
+
+/* ── Radius Showcase ──────────────────────────────────────── */
+.radius-grid {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.radius-box {
+  width: 80px;
+  height: 80px;
+  background: var(--color-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  color: var(--color-accent-foreground);
+  font-weight: 600;
+}
+
+footer {
+  padding: 32px 0;
+  text-align: center;
+  font-size: 13px;
+  color: var(--color-muted-foreground);
+  border-top: 1px solid var(--color-border);
+  margin-top: 64px;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Header -->
+  <div class="page-header">
+    <h1>ERGŌ Design System</h1>
+    <button class="theme-toggle" onclick="toggleTheme()">
+      <span class="theme-indicator"></span>
+      <span id="theme-label">Dark</span>
+    </button>
+  </div>
+
+  <!-- Colors: Background & Surface -->
+  <section>
+    <h2>Background & Surface</h2>
+    <div class="swatch-grid" id="bg-swatches"></div>
+  </section>
+
+  <!-- Colors: Brand & Semantic -->
+  <section>
+    <h2>Brand & Semantic</h2>
+    <div class="swatch-grid" id="brand-swatches"></div>
+  </section>
+
+  <!-- Colors: State -->
+  <section>
+    <h2>State Colors</h2>
+    <div class="swatch-grid" id="state-swatches"></div>
+  </section>
+
+  <!-- Colors: Border & Input -->
+  <section>
+    <h2>Border & Input</h2>
+    <div class="swatch-grid" id="border-swatches"></div>
+  </section>
+
+  <!-- Premium Brand -->
+  <section>
+    <h2>Premium Brand</h2>
+    <div class="swatch-grid" id="premium-swatches"></div>
+  </section>
+
+  <!-- Chart Colors -->
+  <section>
+    <h2>Chart Colors</h2>
+    <div class="swatch-grid" id="chart-swatches"></div>
+  </section>
+
+  <!-- Typography -->
+  <section>
+    <h2>Typography</h2>
+    <div class="type-specimen">
+      <div class="label">font-serif — Playfair Display</div>
+      <h1 style="font-size:2.5rem;letter-spacing:-0.02em;">The Art of Ergonomic Seating</h1>
+    </div>
+    <div class="type-specimen">
+      <div class="label">font-sans — Inter (300)</div>
+      <p style="font-weight:300;font-size:1.125rem;">Light weight for large body text and subtle labels.</p>
+    </div>
+    <div class="type-specimen">
+      <div class="label">font-sans — Inter (400)</div>
+      <p style="font-weight:400;font-size:1rem;">Regular weight for standard body copy. Designed for premium readability.</p>
+    </div>
+    <div class="type-specimen">
+      <div class="label">font-sans — Inter (500)</div>
+      <p style="font-weight:500;font-size:1rem;">Medium weight for navigation, labels, and emphasis.</p>
+    </div>
+    <div class="type-specimen">
+      <div class="label">font-sans — Inter (600)</div>
+      <p style="font-weight:600;font-size:1rem;">Semibold for buttons and strong UI text.</p>
+    </div>
+    <div class="type-specimen">
+      <div class="label">font-sans — Inter (700)</div>
+      <p style="font-weight:700;font-size:1rem;">Bold for headlines and key callouts.</p>
+    </div>
+  </section>
+
+  <!-- Border Radius -->
+  <section>
+    <h2>Border Radius</h2>
+    <div class="radius-grid">
+      <div class="radius-box" style="border-radius:calc(0.5rem - 4px);">sm</div>
+      <div class="radius-box" style="border-radius:calc(0.5rem - 2px);">md</div>
+      <div class="radius-box" style="border-radius:0.5rem;">lg</div>
+      <div class="radius-box" style="border-radius:1rem;">xl</div>
+      <div class="radius-box" style="border-radius:50%;">full</div>
+    </div>
+  </section>
+
+  <!-- Shadows -->
+  <section>
+    <h2>Shadows</h2>
+    <div class="shadow-grid">
+      <div class="shadow-box" style="box-shadow:var(--shadow-sm);">sm</div>
+      <div class="shadow-box" style="box-shadow:var(--shadow-md);">md</div>
+      <div class="shadow-box" style="box-shadow:var(--shadow-lg);">lg</div>
+      <div class="shadow-box" style="box-shadow:var(--shadow-xl);">xl</div>
+      <div class="shadow-box" style="box-shadow:var(--shadow-elegant);">elegant</div>
+      <div class="shadow-box" style="box-shadow:var(--shadow-hover);">hover</div>
+    </div>
+  </section>
+
+  <!-- Gradients -->
+  <section>
+    <h2>Gradients</h2>
+    <div class="gradient-grid">
+      <div class="gradient-strip" style="background:var(--gradient-hero);"><span>hero</span></div>
+      <div class="gradient-strip" style="background:var(--gradient-subtle);"><span>subtle</span></div>
+      <div class="gradient-strip" style="background:var(--gradient-card-hover);"><span>card-hover</span></div>
+      <div class="gradient-strip" style="background:var(--gradient-premium);"><span>premium</span></div>
+    </div>
+  </section>
+
+  <!-- Component Utilities -->
+  <section>
+    <h2>Component Utilities</h2>
+
+    <h3 style="font-family:var(--font-sans);font-size:14px;font-weight:600;margin:24px 0 12px;color:var(--color-muted-foreground);">.card-premium — Hover lift</h3>
+    <div class="demo-row">
+      <div class="demo-card premium">
+        <h4>Executive Chair</h4>
+        <p>Hover me for the lift & shadow effect.</p>
+      </div>
+      <div class="demo-card premium">
+        <h4>Ergonomic Stool</h4>
+        <p>Premium card interaction pattern.</p>
+      </div>
+    </div>
+
+    <h3 style="font-family:var(--font-sans);font-size:14px;font-weight:600;margin:24px 0 12px;color:var(--color-muted-foreground);">.text-gradient-premium</h3>
+    <h2 class="text-gradient-demo" style="font-size:2rem;">Premium Collection</h2>
+
+    <h3 style="font-family:var(--font-sans);font-size:14px;font-weight:600;margin:24px 0 12px;color:var(--color-muted-foreground);">.btn-premium</h3>
+    <button class="btn-premium-demo">Shop Collection</button>
+
+    <h3 style="font-family:var(--font-sans);font-size:14px;font-weight:600;margin:24px 0 12px;color:var(--color-muted-foreground);">.glass-subtle</h3>
+    <div class="glass-demo" style="max-width:320px;">Frosted glass overlay for headers and floating elements.</div>
+
+    <h3 style="font-family:var(--font-sans);font-size:14px;font-weight:600;margin:24px 0 12px;color:var(--color-muted-foreground);">.link-underline</h3>
+    <a href="#" class="link-underline-demo" onclick="return false">Explore our materials</a>
+
+    <h3 style="font-family:var(--font-sans);font-size:14px;font-weight:600;margin:24px 0 12px;color:var(--color-muted-foreground);">.divider-elegant</h3>
+    <div class="divider-demo"></div>
+
+    <h3 style="font-family:var(--font-sans);font-size:14px;font-weight:600;margin:24px 0 12px;color:var(--color-muted-foreground);">.img-zoom — Hover to scale</h3>
+    <div class="img-zoom-demo">
+      <div class="inner">Hover me</div>
+    </div>
+  </section>
+
+  <footer>ERGŌ Seating — Design System Reference</footer>
+
+</div>
+
+<script>
+// Swatch definitions — all values are hardcoded token names, no user input
+var swatchData = {
+  'bg-swatches': [
+    ['background', '--color-background'],
+    ['foreground', '--color-foreground'],
+    ['card', '--color-card'],
+    ['card-fg', '--color-card-foreground'],
+    ['popover', '--color-popover'],
+    ['popover-fg', '--color-popover-foreground'],
+    ['muted', '--color-muted'],
+    ['muted-fg', '--color-muted-foreground']
+  ],
+  'brand-swatches': [
+    ['primary', '--color-primary'],
+    ['primary-fg', '--color-primary-foreground'],
+    ['secondary', '--color-secondary'],
+    ['secondary-fg', '--color-secondary-foreground'],
+    ['accent', '--color-accent'],
+    ['accent-fg', '--color-accent-foreground']
+  ],
+  'state-swatches': [
+    ['destructive', '--color-destructive'],
+    ['destructive-fg', '--color-destructive-foreground'],
+    ['success', '--color-success'],
+    ['success-fg', '--color-success-foreground'],
+    ['warning', '--color-warning'],
+    ['warning-fg', '--color-warning-foreground']
+  ],
+  'border-swatches': [
+    ['border', '--color-border'],
+    ['input', '--color-input'],
+    ['ring', '--color-ring']
+  ],
+  'premium-swatches': [
+    ['premium-gold', '--color-premium-gold'],
+    ['premium-bronze', '--color-premium-bronze'],
+    ['walnut', '--color-walnut'],
+    ['warm-cream', '--color-warm-cream'],
+    ['charcoal-deep', '--color-charcoal-deep']
+  ],
+  'chart-swatches': [
+    ['chart-1', '--color-chart-1'],
+    ['chart-2', '--color-chart-2'],
+    ['chart-3', '--color-chart-3'],
+    ['chart-4', '--color-chart-4'],
+    ['chart-5', '--color-chart-5']
+  ]
+};
+
+function createSwatch(name, prop, computedVal) {
+  var swatch = document.createElement('div');
+  swatch.className = 'swatch';
+
+  var colorDiv = document.createElement('div');
+  colorDiv.className = 'swatch-color';
+  colorDiv.style.background = 'var(' + prop + ')';
+
+  var hexSpan = document.createElement('span');
+  hexSpan.className = 'swatch-hex';
+  hexSpan.textContent = computedVal;
+
+  colorDiv.appendChild(hexSpan);
+
+  var labelDiv = document.createElement('div');
+  labelDiv.className = 'swatch-label';
+  labelDiv.textContent = name;
+
+  swatch.appendChild(colorDiv);
+  swatch.appendChild(labelDiv);
+  return swatch;
+}
+
+function renderSwatches() {
+  var styles = getComputedStyle(document.documentElement);
+  for (var gridId in swatchData) {
+    var grid = document.getElementById(gridId);
+    while (grid.firstChild) grid.removeChild(grid.firstChild);
+    var items = swatchData[gridId];
+    for (var i = 0; i < items.length; i++) {
+      var name = items[i][0];
+      var prop = items[i][1];
+      var val = styles.getPropertyValue(prop).trim();
+      grid.appendChild(createSwatch(name, prop, val));
+    }
+  }
+}
+
+function toggleTheme() {
+  var html = document.documentElement;
+  var isDark = html.classList.contains('dark');
+  if (isDark) {
+    html.classList.remove('dark');
+    localStorage.setItem('theme', 'light');
+    document.getElementById('theme-label').textContent = 'Light';
+  } else {
+    html.classList.add('dark');
+    localStorage.setItem('theme', 'dark');
+    document.getElementById('theme-label').textContent = 'Dark';
+  }
+  requestAnimationFrame(renderSwatches);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  var isDark = document.documentElement.classList.contains('dark');
+  document.getElementById('theme-label').textContent = isDark ? 'Dark' : 'Light';
+  renderSwatches();
+});
+</script>
+
+</body>
+</html>
