@@ -126,7 +126,7 @@ export const Header = () => {
                   <Menu className="h-6 w-6" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-[300px] bg-background">
+              <SheetContent side="right" className="w-75 bg-background">
                 <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
                 <div className="flex flex-col h-full">
                   <div className="flex items-center justify-between pb-6 border-b border-border">
